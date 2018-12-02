@@ -15,10 +15,10 @@ fire_sim  <- function(init, params) {
   n   <- nrow(x)
   m   <- ncol(x)
   wdist <- matrix(c(0,1,0,1,0,1,0,1,0), ncol=3)
-  trees  <- neighbors(init, state=1, wdist=wdist)
-  utrees <- neighbors(init, state=2, wdist=wdist)
-  t_fires <- neighbors(init, state=3, wdist=wdist)
-  u_fires <- neighbors(init, state=4, wdist=wdist)
+  trees  <- simecol::neighbors(init, state=1, wdist=wdist)
+  utrees <- simecol::neighbors(init, state=2, wdist=wdist)
+  t_fires <- simecol::neighbors(init, state=3, wdist=wdist)
+  u_fires <- simecol::neighbors(init, state=4, wdist=wdist)
   rand_mat <- runif(init)
   if(any(x>=3)){
     ## burning rules
