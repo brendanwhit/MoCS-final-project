@@ -66,7 +66,7 @@ fire_sim <- function(map, params){
     
     init <- x
   }
-  return(x)
+  return(init)
 }
 
 growth_sim <- function(map, params, n=1){

@@ -5,13 +5,9 @@ library(raster)
 library(igraph)
 
 controlled_burn <- function(map, budget, params){
-  p_treeburn <- params[1]
-  p_uburn <- params[2]
-  p_burnout_u <- params[3]
-  p_stayburn_u <- params[4]
-  p_burnout_t <- params[5]
-  clump_limit_lower <- params[9]
-  clump_limit_upper <- params[10]
+  clump_limit_lower <- params[1]
+  clump_limit_upper <- params[2]
+  cut_cost <- params[3]
   x   <- init
   n   <- nrow(x)
   m   <- ncol(x)
@@ -40,7 +36,7 @@ controlled_burn <- function(map, budget, params){
     trees_remove <- which(neighbors!=0)
     actual_trees <- x[trees_remove]
     trees_remove_true <- trees_remove[actual_trees==1]
-    cost <- length(trees_remove_true) + 5
+    cost <- length(trees_remove_true*cut_cost) + 5
     if(cost <= budget){
       x[trees_remove_true] <- 0
       x[median(clump==as.integer(names(burn_target)))] <- 4

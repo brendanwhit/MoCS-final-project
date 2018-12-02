@@ -10,7 +10,7 @@ under_clear <- function(map, budget, params) {
   clearing_cost <- params[3]
   
   # change the map to only consider understory
-  print(sum(map))
+  #print(sum(map))
   understory <- map
   understory[understory == 1] <- 0
   
@@ -22,14 +22,14 @@ under_clear <- function(map, budget, params) {
   targets <- sort(clump_tab_understory[which(clump_tab_understory <= max_conn_size)], decreasing = T)
   
   # use the maximum possible budget
-  while (budget > max_conn_size * clearing_cost) {
+  while (budget > max(targets)[1] * clearing_cost) {
     # clear the maximum possible clump size as often as possible
-    clear_targets <- targets[targets==max_conn_size]
+    clear_targets <- targets[targets==max(targets)]
     to_clear <- sample(clear_targets, 1)
     
     map[clump == as.integer(names(to_clear))] <- 1
     
-    budget <- budget - max_conn_size * clearing_cost
+    budget <- budget - to_clear * clearing_cost
   }
   # use the remaining budget on the next possible largest forest size
   
