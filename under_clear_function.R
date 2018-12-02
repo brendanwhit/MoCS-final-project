@@ -1,0 +1,48 @@
+#under_clear_function
+
+#libraries to identify connected components
+library(raster)
+library(igraph)
+
+under_clear <- function(map, budget, params) {
+  max_conn_size <- params[1]
+  min_conn_size <- params[2]
+  clearing_cost <- params[3]
+  
+  # change the map to only consider understory
+  print(sum(map))
+  understory <- map
+  understory[understory == 1] <- 0
+  
+  # determine connected components
+  raster <- raster(understory)
+  clump <- as.matrix(clump(raster, directions=4))
+  clump_tab_understory <- table(clump)
+  
+  targets <- sort(clump_tab_understory[which(clump_tab_understory <= max_conn_size)], decreasing = T)
+  
+  # use the maximum possible budget
+  while (budget > max_conn_size * clearing_cost) {
+    # clear the maximum possible clump size as often as possible
+    clear_targets <- targets[targets==max_conn_size]
+    to_clear <- sample(clear_targets, 1)
+    
+    map[clump == as.integer(names(to_clear))] <- 1
+    
+    budget <- budget - max_conn_size * clearing_cost
+  }
+  # use the remaining budget on the next possible largest forest size
+  
+  if (budget > min_conn_size * clearing_cost) {
+    clear_conn_size = floor(budget / clearing_cost)
+    
+    clear_targets <- targets[targets==clear_conn_size]
+    to_clear <- sample(clear_targets, 1)
+    
+    map[clump == as.integer(names(to_clear))] <- 1
+    
+    budget <- budget - clear_conn_size * clearing_cost
+  }
+  
+  return(map, budget)
+}
