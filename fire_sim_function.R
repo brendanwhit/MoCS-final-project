@@ -39,7 +39,7 @@ library(simecol)
 #  return(x)
 #}
 
-fire_sim <- function(init, params){
+fire_sim <- function(init, params, wind_dist){
   #run fire until burnt out
   p_treeburn <- params[1]
   p_uburn <- params[2]
@@ -51,11 +51,8 @@ fire_sim <- function(init, params){
   p_grow <- params[8]
   while((length(which(init==3))+length(which(init==4)))>0){
     x   <- init
-    wdist <- matrix(c(0,1,0,1,0,1,0,1,0), ncol=3)
-    trees  <- simecol::neighbors(init, state=1, wdist=wdist)
-    utrees <- simecol::neighbors(init, state=2, wdist=wdist)
-    t_fires <- simecol::neighbors(init, state=3, wdist=wdist)
-    u_fires <- simecol::neighbors(init, state=4, wdist=wdist)
+    t_fires <- simecol::neighbors(init, state=3, wdist=wind_dist)
+    u_fires <- simecol::neighbors(init, state=4, wdist=wind_dist)
     rand_mat <- runif(init)
     
     ## burning rules
@@ -71,7 +68,7 @@ fire_sim <- function(init, params){
   return(init)
 }
 
-fire_sim_control <- function(init, params){
+fire_sim_control <- function(init, params, wind_dist){
   #run fire until burnt out
   p_treeburn <- params[1]
   p_uburn <- params[2]
@@ -83,11 +80,8 @@ fire_sim_control <- function(init, params){
   p_grow <- params[8]
   while((length(which(init==3))+length(which(init==4)))>0){
     x   <- init
-    wdist <- matrix(c(0,1,0,1,0,1,0,1,0), ncol=3)
-    trees  <- simecol::neighbors(init, state=1, wdist=wdist)
-    utrees <- simecol::neighbors(init, state=2, wdist=wdist)
-    t_fires <- simecol::neighbors(init, state=3, wdist=wdist)
-    u_fires <- simecol::neighbors(init, state=4, wdist=wdist)
+    t_fires <- simecol::neighbors(init, state=3, wdist=wind_dist)
+    u_fires <- simecol::neighbors(init, state=4, wdist=wind_dist)
     rand_mat <- runif(init)
     
     ## burning rules

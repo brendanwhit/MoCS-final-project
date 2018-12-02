@@ -19,7 +19,7 @@ controlled_burn <- function(map, budget, params){
   clump_tab_understory <- table(clump)
   
   #find clumps greater than n contiguous squares
-  targets <- sort(clump_tab_understory[which(clump_tab_understory >= clump_limit_lower)],
+  targets <- sort(clump_tab_understory[which(clump_tab_understory == clump_limit_lower)],
                   decreasing = T)
   
   #cut clumps larger than m squares (maybe later)
