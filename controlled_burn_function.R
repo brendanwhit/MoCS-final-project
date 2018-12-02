@@ -19,7 +19,7 @@ controlled_burn <- function(map, budget, params){
   clump_tab_understory <- table(clump)
   
   #find clumps greater than n contiguous squares
-  targets <- sort(clump_tab_understory[which(clump_tab_understory >= clump_limit)],
+  targets <- sort(clump_tab_understory[which(clump_tab_understory >= clump_limit_lower)],
                   decreasing = T)
   
   #cut clumps larger than m squares (maybe later)
@@ -39,9 +39,9 @@ controlled_burn <- function(map, budget, params){
     cost <- length(trees_remove_true*cut_cost) + 5
     if(cost <= budget){
       x[trees_remove_true] <- 0
-      x[median(clump==as.integer(names(burn_target)))] <- 4
+      x[which(clump==as.integer(names(burn_target)))[1]] <- 4
       budget <- budget - cost
     }
   }
-  return(x, budget)
+  return(list(x, budget))
 }

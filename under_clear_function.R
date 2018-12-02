@@ -19,7 +19,8 @@ under_clear <- function(map, budget, params) {
   clump <- as.matrix(clump(raster, directions=4))
   clump_tab_understory <- table(clump)
   
-  targets <- sort(clump_tab_understory[which(clump_tab_understory <= max_conn_size)], decreasing = T)
+  targets <- sort(clump_tab_understory[which(clump_tab_understory <= max_conn_size &
+                                               clump_tab_understory>=min_conn_size)], decreasing = T)
   
   # use the maximum possible budget
   while (budget > max(targets)[1] * clearing_cost) {
@@ -44,5 +45,5 @@ under_clear <- function(map, budget, params) {
     budget <- budget - clear_conn_size * clearing_cost
   }
   
-  return(map, budget)
+  return(list(map, budget))
 }
