@@ -35,9 +35,9 @@ controlled_burn <- function(map, budget, params){
     burn_target <- targets[1] #get clump to burn
     targets <- targets[-1] #remove clump from list
     removal_mat <- x
-    removal_mat[clump==as.integer(names(burn_target))] <- 5
-    neighbors <- simecol::neighbors(removal_mat, state=5, wdist=wdist)
-    trees_remove <- which(trees!=0)
+    removal_mat[clump==as.integer(names(burn_target))] <- 6
+    neighbors <- simecol::neighbors(removal_mat, state=6, wdist=wdist)
+    trees_remove <- which(neighbors!=0)
     actual_trees <- x[trees_remove]
     trees_remove_true <- trees_remove[actual_trees==1]
     cost <- length(trees_remove_true) + 5
