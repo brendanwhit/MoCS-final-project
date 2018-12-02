@@ -2,7 +2,7 @@
 
 #libraries to identify connected components
 library(raster)
-library(igraph)
+#library(igraph)
 
 under_clear <- function(map, budget, params) {
   max_conn_size <- params[1]

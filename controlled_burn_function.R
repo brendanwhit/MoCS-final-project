@@ -2,7 +2,7 @@
 
 #libraries to identify connected components
 library(raster)
-library(igraph)
+#library(igraph)
 
 controlled_burn <- function(map, budget, params){
   clump_limit_lower <- params[1]

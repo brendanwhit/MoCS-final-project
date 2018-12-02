@@ -4,7 +4,7 @@ source('./fire_sim_function.R')
 source('./controlled_burn_function.R')
 source('./under_clear_function.R')
 library(simecol)
-library(igraph)
+#library(igraph)
 library(raster)
 
 #wdists
