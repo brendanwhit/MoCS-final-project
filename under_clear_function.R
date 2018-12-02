@@ -34,10 +34,14 @@ under_clear <- function(map, budget, params) {
   }
   # use the remaining budget on the next possible largest forest size
   
-  if (budget > min_conn_size * clearing_cost) {
+  while (budget > min_conn_size * clearing_cost) {
     clear_conn_size = floor(budget / clearing_cost)
     
     clear_targets <- targets[targets==clear_conn_size]
+    while(length(clear_targets)==0 & clear_conn_size>=min_conn_size){
+      clear_conn_size <- clear_conn_size - 1
+      clear_targets <- targets[targets==clear_conn_size]
+    }
     to_clear <- sample(clear_targets, 1)
     
     map[clump == as.integer(names(to_clear))] <- 1

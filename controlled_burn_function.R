@@ -8,7 +8,7 @@ controlled_burn <- function(map, budget, params){
   clump_limit_lower <- params[1]
   clump_limit_upper <- params[2]
   cut_cost <- params[3]
-  x   <- init
+  x   <- map
   n   <- nrow(x)
   m   <- ncol(x)
   x_understory <- x

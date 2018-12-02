@@ -25,7 +25,7 @@ params_growth_burn <- c(p_treeburn <- 0.5,
 
 params_clear <- c(max_conn_size <- 30,
                   min_conn_size <- 10,
-                  clearing_cost <- 1)
+                  clearing_cost <- 0.5)
 
 params_cburn <- c(clump_limit_lower <- 30,
                   clump_limit_upper <- 100000,

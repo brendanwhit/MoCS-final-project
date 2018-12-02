@@ -103,7 +103,7 @@ fire_sim_control <- function(init, params){
   return(init)
 }
 
-growth_sim <- function(map, params, n=1){
+growth_sim <- function(init, params, n=1){
   p_treeburn <- params[1]
   p_uburn <- params[2]
   p_burnout_u <- params[3]
@@ -112,7 +112,7 @@ growth_sim <- function(map, params, n=1){
   p_seed <- params[6]
   p_spread <- params[7]
   p_grow <- params[8]
-  nrow <- nrow(map)
+  nrow <- nrow(init)
   for(i in 1:n){
     x   <- init
     wdist <- matrix(c(0,1,0,1,0,1,0,1,0), ncol=3)
