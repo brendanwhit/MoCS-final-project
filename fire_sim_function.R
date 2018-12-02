@@ -1,5 +1,7 @@
 #fire_sim function
 
+library(simecol)
+
 fire_sim  <- function(init, params) {
   p_treeburn <- params[1]
   p_uburn <- params[2]
