@@ -10,14 +10,33 @@ controlled_burn <- function(map, budget, params){
   p_burnout_u <- params[3]
   p_stayburn_u <- params[4]
   p_burnout_t <- params[5]
-  p_seed <- params[6]
-  p_spread <- params[7]
-  p_grow <- params[8]
+  clump_limit_lower <- params[9]
+  clump_limit_upper <- params[10]
   x   <- init
   n   <- nrow(x)
   m   <- ncol(x)
   x <- init
-  raster <- raster(x)
+  x_understory <- x
+  x_understory[x_understory==1]<-0
+  #build connected components
+  raster <- raster(x_understory)
   clump <- as.matrix(clump(raster, directions=4))
-  clump_tab <- table(clump)
+  clump_tab_understory <- table(clump)
+  
+  #find clumps greater than n contiguous squares
+  targets <- sort(clump_tab_understory[which(clump_tab_understory >= clump_limit)],
+                  decreasing = T)
+  
+  #cut clumps larger than m squares (maybe later)
+  #targets_2 <- targets[which(targets >= clump_limit_upper)]
+  
+  #clear trees around largest burn clumps, then ignite, burn, and subtract from budget
+  while(budget > 0){
+    burn_target <- targets[1] #get clump to burn
+    targets <- targets[-1] #remove clump from list
+    
+  }
+  
+  
+  
 }
