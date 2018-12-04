@@ -4,7 +4,6 @@ source('./fire_sim_function.R')
 source('./controlled_burn_function.R')
 source('./under_clear_function.R')
 library(simecol)
-#library(igraph)
 library(raster)
 
 #wdists
@@ -60,7 +59,7 @@ for(i in 1:3){
     budget_burn <- bud_burn
     wildfire_size <- numeric(0)
     controlled_burn_size <- numeric(0)
-    for(k in 1:100){
+    for(k in 1:2000){
       first_output <- under_clear(init, budget_clear, params_clear)
       budget_clear <- bud_clear + first_output[[2]]
       #conduct controlled burn
