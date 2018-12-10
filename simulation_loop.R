@@ -96,7 +96,7 @@ for(i in 1:15){
   cont_burns <- data_controlled[[i]]
   wild_avg <- mean(wild_burns[wild_burns !=0], na.rm=T)
   pct_large <- (length(wild_burns[wild_burns > 200])+length(cont_burns[cont_burns>200 &!is.na(cont_burns)]))/200
-  pct_burns <- (length(wild_burns!=0)+length(cont_burns[cont_burns>0 & !is.na(cont_burns)]))/200
+  pct_burns <- (length(wild_burns[wild_burns!=0])+length(cont_burns[cont_burns>0 & !is.na(cont_burns)]))/200
   pct_ooc <- length(cont_burns[cont_burns>200 & !is.na(cont_burns)])/100
   data_list[[i]] <- c(wild_avg, pct_large, pct_burns, pct_ooc)
 }
