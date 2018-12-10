@@ -1,8 +1,8 @@
 #overnight simulation of this shite, full sweep
 #loads
-source('./fire_sim_function.R')
-source('./controlled_burn_function.R')
-source('./under_clear_function.R')
+source('./fire_sim_function_town.R')
+source('./controlled_burn_function_town.R')
+source('./under_clear_function_town.R')
 library(simecol)
 library(raster)
 
@@ -10,11 +10,9 @@ library(raster)
 winds <- as.list(1:3)
 winds[[1]] <- matrix(c(0,1,0,1,0,1,0,1,0), ncol=3)
 winds[[2]] <- matrix(c(0,.1,0,0,0,.1,0.2,1,0,0,0.2,2,0,0.5,0,0.1,0.2,1,0,0,0,.1,0,0,0), ncol=5,
-                     byrow = T)
+                   byrow = T)
 winds[[3]] <- matrix(c(0,.5,0,0,0,.5,1,2,0,0,1,3,0,1,0,0.5,1,2,0,0,0,.5,0,0,0), ncol=5,
                      byrow = T)
-
-
 
 #budgets
 
@@ -32,20 +30,21 @@ params_growth_burn <- c(p_treeburn <- 0.5,
                         p_spread <- 0.1,
                         p_grow <- 0.1)
 
-params_clear <- c(max_conn_size <- 30,
-                  min_conn_size <- 10,
-                  clearing_cost <- 0.5)
+params_clear <- c(max_conn_size <- 64,
+                  min_conn_size <- 1,
+                  clearing_cost <- 1,
+                  search_range <- 8)
 
-params_cburn <- c(clump_limit_lower <- 30,
+params_cburn <- c(clump_limit_lower <- 1,
                   clump_limit_upper <- 100000,
-                  cut_cost <- 2)
+                  cut_cost <- 1,
+                  search_range_min <- 8,
+                  search_range_max <- 30)
 
 #initialize data
 data_wildfire <- as.list(1:15)
 data_controlled <- as.list(1:15)
-
-#initialize map
-init <- matrix(sample(c(0:2), 200*200, replace=T), nrow=200, ncol=200)
+data_townburn <- as.list(1:15)
 
 #loop through all
 index <- 0
@@ -60,7 +59,8 @@ for(i in 1:3){
     wildfire_size <- numeric(0)
     controlled_burn_size <- numeric(0)
     init <- matrix(sample(c(0:2), 200*200, replace=T), nrow=200, ncol=200)
-    for(k in 1:100){
+    init[100:101,100:101] <- 5
+    for(k in 1:20){
       first_output <- under_clear(init, budget_clear, params_clear)
       budget_clear <- bud_clear + first_output[[2]]
       image_fire(first_output[[1]])
@@ -83,20 +83,14 @@ for(i in 1:3){
                            length(which(fifth_output==1|fifth_output==2)))
       image_fire(fifth_output)
       init <- fifth_output
+      if(length(which(init==-1))==4){
+        break
+      }
     }
+    data_townburn[[index]] <- c(which(init==-1), k)
     data_wildfire[[index]] <- wildfire_size
     data_controlled[[index]] <- controlled_burn_size
   }
 }
 
-save(data_wildfire, data_controlled, file='burn_data.RData')
-data_list <- as.list(1:15)
-for(i in 1:15){
-  wild_burns <- data_wildfire[[i]]
-  cont_burns <- data_controlled[[i]]
-  wild_avg <- mean(wild_burns[wild_burns !=0], na.rm=T)
-  pct_large <- (length(wild_burns[wild_burns > 200])+length(cont_burns[cont_burns>200 &!is.na(cont_burns)]))/200
-  pct_burns <- (length(wild_burns!=0)+length(cont_burns[cont_burns>0 & !is.na(cont_burns)]))/200
-  pct_ooc <- length(cont_burns[cont_burns>200 & !is.na(cont_burns)])/100
-  data_list[[i]] <- c(wild_avg, pct_large, pct_burns, pct_ooc)
-}
+#save(data_wildfire, data_controlled, file='burn_data.RData')

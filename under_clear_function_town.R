@@ -7,14 +7,27 @@ under_clear <- function(map, budget, params) {
   max_conn_size <- params[1]
   min_conn_size <- params[2]
   clearing_cost <- params[3]
+  search_range <- params[4]
   
   # change the map to only consider understory
   #print(sum(map))
   understory <- map
   understory[understory == 1] <- 0
   
+  #create masked map only containing a circle around the town
+  max <- 101+search_range+1
+  min <- 100-search_range-1
+  
+  ncols <- ncol(understory)
+  
+  understory_mask <- understory
+  understory_mask[max:ncols,] <- 0
+  understory_mask[0:min,] <- 0
+  understory_mask[,max:ncols] <- 0
+  understory_mask[,0:min] <- 0
+  understory_mask[understory_mask==5 | understory_mask==-1] <- 0
   # determine connected components
-  raster <- raster(understory)
+  raster <- raster(understory_mask)
   clump <- as.matrix(clump(raster, directions=4))
   clump_tab_understory <- table(clump)
   
