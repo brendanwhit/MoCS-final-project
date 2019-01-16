@@ -172,6 +172,9 @@ of a tree catching on fire given the number of neighbors that are on fire. The
 0 & 1 & 0 
 \end{bmatrix}
 \]
+
+<center><a href="https://www.codecogs.com/eqnedit.php?latex=\large&space;\begin{bmatrix}&space;0&space;&&space;1&space;&&space;0&space;\\&space;1&space;&&space;\color{red}{0}&space;&&space;1&space;\\&space;0&space;&&space;1&space;&&space;0&space;\end{bmatrix}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\large&space;\begin{bmatrix}&space;0&space;&&space;1&space;&&space;0&space;\\&space;1&space;&&space;\color{red}{0}&space;&&space;1&space;\\&space;0&space;&&space;1&space;&&space;0&space;\end{bmatrix}" title="\large \begin{bmatrix} 0 & 1 & 0 \\ 1 & \color{red}{0} & 1 \\ 0 & 1 & 0 \end{bmatrix}" /></a></center>
+
 For our model, every tree in an ordinal direction has an equal chance in
 lighting the tree in question, designated by the red text, on fire. 
 
@@ -189,6 +192,9 @@ below:
 0&\frac{1}{10}&0&0&0\\
 \end{bmatrix}
 \]
+
+<center><a href="https://www.codecogs.com/eqnedit.php?latex=\large&space;\begin{bmatrix}&space;0&\frac{1}{10}&0&0&0\\&space;\frac{1}{10}&\frac{1}{5}&1&0&0\\&space;\frac{1}{5}&2&\color{red}{0}&\frac{1}{2}&0\\&space;\frac{1}{10}&\frac{1}{5}&1&0&0\\&space;0&\frac{1}{10}&0&0&0\\&space;\end{bmatrix}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\large&space;\begin{bmatrix}&space;0&\frac{1}{10}&0&0&0\\&space;\frac{1}{10}&\frac{1}{5}&1&0&0\\&space;\frac{1}{5}&2&\color{red}{0}&\frac{1}{2}&0\\&space;\frac{1}{10}&\frac{1}{5}&1&0&0\\&space;0&\frac{1}{10}&0&0&0\\&space;\end{bmatrix}" title="\large \begin{bmatrix} 0&\frac{1}{10}&0&0&0\\ \frac{1}{10}&\frac{1}{5}&1&0&0\\ \frac{1}{5}&2&\color{red}{0}&\frac{1}{2}&0\\ \frac{1}{10}&\frac{1}{5}&1&0&0\\ 0&\frac{1}{10}&0&0&0\\ \end{bmatrix}" /></a></center>
+
 With high winds, a tree will be 2 times more likely to catch fire if its direct
 westerly neighbor is on fire than if its direct easterly neighbor is on fire. 
 Additionally, trees two spaces to the west of the potential ignition point 
@@ -208,6 +214,9 @@ conditions is below:
 0 & \frac{1}{2} & 0 & 0 & 0
 \end{bmatrix}
 \]
+
+<center><a href="https://www.codecogs.com/eqnedit.php?latex=\large&space;\begin{bmatrix}&space;0&space;&&space;\frac{1}{2}&space;&&space;0&space;&&space;0&space;&&space;0&space;\\&space;\frac{1}{2}&space;&&space;1&space;&&space;2&space;&&space;0&space;&&space;0&space;\\&space;1&space;&&space;3&space;&&space;\color{red}{0}&space;&&space;1&space;&&space;0&space;\\&space;\frac{1}{2}&space;&&space;1&space;&&space;2&space;&&space;0&space;&&space;0&space;\\&space;0&space;&&space;\frac{1}{2}&space;&&space;0&space;&&space;0&space;&&space;0&space;\end{bmatrix}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\large&space;\begin{bmatrix}&space;0&space;&&space;\frac{1}{2}&space;&&space;0&space;&&space;0&space;&&space;0&space;\\&space;\frac{1}{2}&space;&&space;1&space;&&space;2&space;&&space;0&space;&&space;0&space;\\&space;1&space;&&space;3&space;&&space;\color{red}{0}&space;&&space;1&space;&&space;0&space;\\&space;\frac{1}{2}&space;&&space;1&space;&&space;2&space;&&space;0&space;&&space;0&space;\\&space;0&space;&&space;\frac{1}{2}&space;&&space;0&space;&&space;0&space;&&space;0&space;\end{bmatrix}" title="\large \begin{bmatrix} 0 & \frac{1}{2} & 0 & 0 & 0 \\ \frac{1}{2} & 1 & 2 & 0 & 0 \\ 1 & 3 & \color{red}{0} & 1 & 0 \\ \frac{1}{2} & 1 & 2 & 0 & 0 \\ 0 & \frac{1}{2} & 0 & 0 & 0 \end{bmatrix}" /></a></center>
+
 With high winds, a tree will be 3 times more likely to catch fire if its direct
 westerly neighbor is on fire than if its direct easterly neighbor is on fire. 
 Trees two spaces west factor much more into the probability of the central tree
