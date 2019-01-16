@@ -76,6 +76,7 @@ states, rules, and assumptions are in the following subsections.
 ### States
 
 The five states of the base model are:
+
 + No Tree (NT)
 + Tree with no understory (T)
 + Tree with understory (UT)
@@ -88,9 +89,11 @@ The rules for our model fall into three categories: Update Rules, Forest
 Management, and Wind Rules.  Further explanations of the three rules are
 explained in the following three subsections.  The general schematic for
 updating our forest fire model is:
+
 + Grow Forest
 + Manage Forest
 + Simulate Fire (if any)
+
 Fire simulation can occur at two points.  We will simulate controlled burns
 first, then implement random lightning strikes to see if any uncontrolled fires
 appear.  The only difference between controlled burns and uncontrolled burns is
@@ -104,6 +107,7 @@ which is specified in the Update Rules section.
 
 The majority of rules for our model are stochastic, however a couple of them
 are deterministic. The stochastic rules are:
+
 + Tree growth (random): NT &rarr; T with p<sub>TG</sub>
 + Tree growth (neighbor): NT &rarr; T with N<sub>neighbors</sub> &sdot; p<sub>NTG</sub>
 + Understory growth: T &rarr; UT with p<sub>UG</sub>
@@ -112,10 +116,14 @@ are deterministic. The stochastic rules are:
 + Understory continues burning: UF &rarr; UF with p<sub>&gamma;</sub> 
 + Understory fire starts tree fire: UF &rarr; TF with 1-p<sub>&beta;</sub>-p<sub>&gamma;</sub>
 + Tree catches fire: T &rarr; TF with 1-p<sub>&alpha;</sub> adjusted for wind level
+
 The deterministic rules:
+
 + Tree fire burns out: TF &rarr; NT
 + Understory catches fire (fire spread): UT &rarr; UF if neighboring TF or UF
+
 We used the following transition probabilities for the stochastic processes:
+
 + p<sub>TG</sub>=0.0005
 + p<sub>NTG</sub>=0.1
 + p<sub>UG</sub>=0.1
@@ -167,13 +175,6 @@ would be able to jump over areas regardless of the designation of those areas.
 To simulate no wind, we used just ordinal neighbors to adjust the probability 
 of a tree catching on fire given the number of neighbors that are on fire. The
 3x3 matrix below represents the weights given to each neighbor:
-\[
-\begin{bmatrix}
-0 & 1 & 0 \\
-1 & \textcolor{red}{0} & 1 \\
-0 & 1 & 0 
-\end{bmatrix}
-\]
 
 <center><a href="https://www.codecogs.com/eqnedit.php?latex=\large&space;\begin{bmatrix}&space;0&space;&&space;1&space;&&space;0&space;\\&space;1&space;&&space;\color{red}{0}&space;&&space;1&space;\\&space;0&space;&&space;1&space;&&space;0&space;\end{bmatrix}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\large&space;\begin{bmatrix}&space;0&space;&&space;1&space;&&space;0&space;\\&space;1&space;&&space;\color{red}{0}&space;&&space;1&space;\\&space;0&space;&&space;1&space;&&space;0&space;\end{bmatrix}" title="\large \begin{bmatrix} 0 & 1 & 0 \\ 1 & \color{red}{0} & 1 \\ 0 & 1 & 0 \end{bmatrix}" /></a></center>
 
@@ -185,15 +186,6 @@ to the neighbors west of the trees.  The wind matrix is applied to every tree
 in the same orientation, thus simulating a prevailing west to east wind across
 the scope of our model. The 5x5 matrix used to simulate low wind conditions is
 below: 
-\[
-\begin{bmatrix}
-0&\frac{1}{10}&0&0&0\\
-\frac{1}{10}&\frac{1}{5}&1&0&0\\
-\frac{1}{5}&2&\textcolor{red}{0}&\frac{1}{2}&0\\
-\frac{1}{10}&\frac{1}{5}&1&0&0\\
-0&\frac{1}{10}&0&0&0\\
-\end{bmatrix}
-\]
 
 <center><a href="https://www.codecogs.com/eqnedit.php?latex=\large&space;\begin{bmatrix}&space;0&\frac{1}{10}&0&0&0\\&space;\frac{1}{10}&\frac{1}{5}&1&0&0\\&space;\frac{1}{5}&2&\color{red}{0}&\frac{1}{2}&0\\&space;\frac{1}{10}&\frac{1}{5}&1&0&0\\&space;0&\frac{1}{10}&0&0&0\\&space;\end{bmatrix}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\large&space;\begin{bmatrix}&space;0&\frac{1}{10}&0&0&0\\&space;\frac{1}{10}&\frac{1}{5}&1&0&0\\&space;\frac{1}{5}&2&\color{red}{0}&\frac{1}{2}&0\\&space;\frac{1}{10}&\frac{1}{5}&1&0&0\\&space;0&\frac{1}{10}&0&0&0\\&space;\end{bmatrix}" title="\large \begin{bmatrix} 0&\frac{1}{10}&0&0&0\\ \frac{1}{10}&\frac{1}{5}&1&0&0\\ \frac{1}{5}&2&\color{red}{0}&\frac{1}{2}&0\\ \frac{1}{10}&\frac{1}{5}&1&0&0\\ 0&\frac{1}{10}&0&0&0\\ \end{bmatrix}" /></a></center>
 
@@ -207,15 +199,6 @@ weight given to the neighbors west of the trees.  The wind matrix is applied to
 every tree in the same orientation, thus simulating a prevailing west to east 
 wind across the scope of our model. The 5x5 matrix used to simulate high wind
 conditions is below: 
-\[
-\begin{bmatrix}
-0 & \frac{1}{2} & 0 & 0 & 0 \\
-\frac{1}{2} & 1 & 2 & 0 & 0 \\
-1 & 3 & \textcolor{red}{0} & 1 & 0 \\
-\frac{1}{2} & 1 & 2 & 0 & 0 \\
-0 & \frac{1}{2} & 0 & 0 & 0
-\end{bmatrix}
-\]
 
 <center><a href="https://www.codecogs.com/eqnedit.php?latex=\large&space;\begin{bmatrix}&space;0&space;&&space;\frac{1}{2}&space;&&space;0&space;&&space;0&space;&&space;0&space;\\&space;\frac{1}{2}&space;&&space;1&space;&&space;2&space;&&space;0&space;&&space;0&space;\\&space;1&space;&&space;3&space;&&space;\color{red}{0}&space;&&space;1&space;&&space;0&space;\\&space;\frac{1}{2}&space;&&space;1&space;&&space;2&space;&&space;0&space;&&space;0&space;\\&space;0&space;&&space;\frac{1}{2}&space;&&space;0&space;&&space;0&space;&&space;0&space;\end{bmatrix}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\large&space;\begin{bmatrix}&space;0&space;&&space;\frac{1}{2}&space;&&space;0&space;&&space;0&space;&&space;0&space;\\&space;\frac{1}{2}&space;&&space;1&space;&&space;2&space;&&space;0&space;&&space;0&space;\\&space;1&space;&&space;3&space;&&space;\color{red}{0}&space;&&space;1&space;&&space;0&space;\\&space;\frac{1}{2}&space;&&space;1&space;&&space;2&space;&&space;0&space;&&space;0&space;\\&space;0&space;&&space;\frac{1}{2}&space;&&space;0&space;&&space;0&space;&&space;0&space;\end{bmatrix}" title="\large \begin{bmatrix} 0 & \frac{1}{2} & 0 & 0 & 0 \\ \frac{1}{2} & 1 & 2 & 0 & 0 \\ 1 & 3 & \color{red}{0} & 1 & 0 \\ \frac{1}{2} & 1 & 2 & 0 & 0 \\ 0 & \frac{1}{2} & 0 & 0 & 0 \end{bmatrix}" /></a></center>
 
