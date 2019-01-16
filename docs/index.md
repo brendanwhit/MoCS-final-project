@@ -3,6 +3,8 @@ title: Modeling the Effectiveness of British Columbia Fire Control
 author: Andrew Bekcer and Brendan Whitney
 ---
 
+Andrew Becker and Brendan Whitney
+
 A PDF of our report can be found [here](report.pdf).
 All code can be found on [our repository](https://github.com/brendanwhit/MoCS-final-project).
 
