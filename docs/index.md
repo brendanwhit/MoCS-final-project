@@ -240,29 +240,137 @@ their intended range (OoC Burns). This is all summarized in Table 1.
 Note that in % Burns, 100% means that both a controlled burn and a wildfire,
 which same as saying twice as many burns occurred as there were timesteps.
 
-\begin{center}
-\begin{tabular}{c c c c c c}
-Wind & Budget & Avg. Wildfire Size & % Burn & % Lg. Burn & % OoC Burns\\
-\hline
-     No & All Burn & 1932 & 77% & 19.5% & 0%\\
-     No & All Clear & 4845 & 16% & 8.5% & N/A\\
-     No & 50/50 & 3312 & 59.5% & 15.5% & 0%\\
-     No &  25% C, 75% B & 3634 & 58.5% & 14% & 0%\\
-     No & 75% C, 25% B & 4011 & 60% & 11.5% & 0%\\
-     Low & All Burn & 263 & 63% & 29.5% & 45%\\
-     Low & All Clear & 4096 & 18% & 11.5% & N/A\\
-     Low & 50/50 & 1556 & 40.5% & 30% & 41%\\
-     Low &  25% C, 75% B & 335 & 58%&40.5% & 70%\\
-     Low & 75% C, 25% B & 1625 & 30.5%& 22%& 30% \\
-     High & All Burn & 129 & 53% & 4.5% & 6%\\
-     High & All Clear & 6078 &8.5% & 6.5% & N/A\\
-     High & 50/50 & 2515 &16.5% &12.5% &13%\\
-     High &  25% C, 75% B & 422 & 42% & 26.5% &47%\\
-     High & 75% C, 25% B & 1944 &18% & 12.5% &14%
-\end{tabular}
-\captionof{table}{Results of simulations of forest fires in differing wind conditions.}
-\label{tab:fire}
-\end{center}
+<table>
+<caption> Table 1: Results of simulations of forest fires in differing wind 
+conditions. </caption>
+<tr>
+<th> Wind </th>
+<th> Budget </th>
+<th> Avg. Wildfire Size </th>
+<th> % Burn </th>
+<th> % Lg. Burn </th>
+<th> % OoC Burns </th>
+</tr>
+<tr>
+<td> No </td>
+<td> All Burn </td>
+<td> 1932 </td>
+<td> 77% </td>
+<td> 19.5% </td>
+<td> 0% </td>
+</tr>
+<tr>
+<td> No </td>
+<td> All Clear </td>
+<td> 4845 </td>
+<td> 16% </td>
+<td> 8.5% </td>
+<td> N/A </td>
+</tr>
+<tr>
+<td> No </td>
+<td> 50/50 </td>
+<td> 3312 </td>
+<td> 59.5% </td>
+<td> 15.5% </td>
+<td> 0% </td>
+</tr>
+<tr>
+<td> No </td>
+<td> 25% C, 75% B </td>
+<td> 3634 </td>
+<td> 58.5% </td>
+<td> 14% </td>
+<td> 0% </td>
+</tr>
+<tr>
+<td> No </td>
+<td> 75% C, 25% B </td>
+<td> 4011 </td>
+<td> 63% </td>
+<td> 11.5% </td>
+<td> 0% </td>
+</tr>
+<tr>
+<td> Low </td>
+<td> All Burn </td>
+<td> 263 </td>
+<td> 63% </td>
+<td> 29.5% </td>
+<td> 45% </td>
+</tr>
+<tr>
+<td> Low </td>
+<td> All Clear </td>
+<td> 4096 </td>
+<td> 18% </td>
+<td> 11.5% </td>
+<td> N/A </td>
+</tr>
+<tr>
+<td> Low </td>
+<td> 50/50 </td>
+<td> 1556 </td>
+<td> 40.5% </td>
+<td> 30% </td>
+<td> 41% </td>
+</tr>
+<tr>
+<td> Low </td>
+<td> 25% C, 75% B </td>
+<td> 335 </td>
+<td> 58% </td>
+<td> 40.5% </td>
+<td> 70% </td>
+</tr>
+<tr>
+<td> Low </td>
+<td> 75% C, 25% B </td>
+<td> 1625 </td>
+<td> 30.5% </td>
+<td> 22% </td>
+<td> 30% </td>
+</tr>
+<tr>
+<td> High </td>
+<td> All Burn </td>
+<td> 129 </td>
+<td> 53% </td>
+<td> 4.5% </td>
+<td> 6% </td>
+</tr>
+<tr>
+<td> High </td>
+<td> All Clear </td>
+<td> 6078 </td>
+<td> 8.5% </td>
+<td> 6.5% </td>
+<td> N/A </td>
+</tr>
+<tr>
+<td> High </td>
+<td> 50/50 </td>
+<td> 2515 </td>
+<td> 16.5% </td>
+<td> 12.5% </td>
+<td> 13% </td>
+</tr>
+<tr>
+<td> High </td>
+<td> 25% C, 75% B </td>
+<td> 442 </td>
+<td> 42% </td>
+<td> 26.5% </td>
+<td> 47% </td>
+</tr>
+<tr>
+<td> High </td>
+<td> 75% C, 25% B </td>
+<td> 1944 </td>
+<td> 18% </td>
+<td> 12.5% </td>
+<td> 14% </td>
+</tr>
 
 ### Adding a Town
 
@@ -290,37 +398,114 @@ humans are living, so we chose to only conduct land clearing in those areas,
 and then controlled burns further from the town squares. The algorithms are the
 same except the only consider the area inside of these regions.
 
-The results from simulations are summarized in Table~\ref{tab:town}. Five
+The results from simulations are summarized in Table 2. Five
 different budgets allocating differing amounts of 'money' to either controlled
 burning or land clearing are compared across the three wind conditions. The
 simulations were run either until the whole town burnt, or 200 years of 
 simulated forest growth and management occurred. In the case of low wind, the
 most variable of the three cases, we averaged over several runs of 200 years.
 
-\begin{center}
-\begin{tabular}{c c c c}
-Wind & Budget & Time to End & Outcome\\
-\hline
-     No & All Burn & 40 yrs & Town Burnt\\
-     No & All Clear & 200 yrs & 75% Burnt\\
-     No & 50/50 & 200 yrs & No Town Burnt\\
-     No &  25% C, 75% B & 200 yrs & No Town Burnt\\
-     No & 75% C, 25% B & 200 yrs & No Town Burnt \\
-     Low & All Burn & 40 yrs & Town Burnt\\
-     Low & All Clear & 52.5 yrs & Town Burnt\\
-     Low & 50/50 & 195 yrs &  54% Burnt\\
-     Low &  25% C, 75% B & 137 yrs & 92% Burnt\\
-     Low & 75% C, 25% B & 40 yrs & Town Burnt \\
-     High & All Burn & 10 yrs & Town Burnt\\
-     High & All Clear & 10 yrs & Town Burnt\\
-     High & 50/50 & 10 yrs & Town Burnt\\
-     High &  25% C, 75% B & 10 yrs & Town Burnt\\
-     High & 75% C, 25% B & 10 yrs & Town Burnt \\
-\end{tabular}
-\captionof{table}{Numerical results of simulation of town indicating the status of the town, the wind conditions, and how long the town survived.}
-\label{tab:town}
-\end{center}
-
+<table>
+<caption> Table 2: Numerical results of simulation of town indicating the
+status of the town, the wind conditions, and how long the town survived.
+</caption>
+<tr>
+<th> Wind </th>
+<th> Budget </th>
+<th> Time to End </th>
+<th> Outcome </th>
+</tr>
+<tr>
+<td> No </td>
+<td> All Burn </td>
+<td> 40 years </td>
+<td> Town Burnt </td>
+</tr>
+<tr>
+<td> No </td>
+<td> All Clear </td>
+<td> 200 years </td>
+<td> 75% Burnt </td>
+</tr>
+<tr>
+<td> No </td>
+<td> 50/50 </td>
+<td> 200 years </td>
+<td> No Town Burnt </td>
+</tr>
+<tr>
+<td> No </td>
+<td> 25% C, 75% B</td>
+<td> 200 years </td>
+<td> No Town Burnt </td>
+</tr>
+<tr>
+<td> No </td>
+<td> 75% C, 25% B </td>
+<td> 200 years </td>
+<td> No Town Burnt </td>
+</tr>
+<tr>
+<td> Low </td>
+<td> All Burn </td>
+<td> 40 years </td>
+<td> Town Burnt </td>
+</tr>
+<tr>
+<td> Low </td>
+<td> All Clear </td>
+<td> 52.5 years </td>
+<td> Town Burnt </td>
+</tr>
+<tr>
+<td> Low </td>
+<td> 50/50 </td>
+<td> 195 years </td>
+<td> 54% Burnt </td>
+</tr>
+<tr>
+<td> Low </td>
+<td> 25% C, 75% B</td>
+<td> 137 years </td>
+<td> 92% Town Burnt </td>
+</tr>
+<tr>
+<td> Low </td>
+<td> 75% C, 25% B </td>
+<td> 40 years </td>
+<td> Town Burnt </td>
+</tr>
+<tr>
+<td> High </td>
+<td> All Burn </td>
+<td> 10 years </td>
+<td> Town Burnt </td>
+</tr>
+<tr>
+<td> High </td>
+<td> All Clear </td>
+<td> 10 years </td>
+<td> Town Burnt </td>
+</tr>
+<tr>
+<td> High </td>
+<td> 50/50 </td>
+<td> 10 years </td>
+<td> Town Burnt </td>
+</tr>
+<tr>
+<td> High </td>
+<td> 25% C, 75% B</td>
+<td> 10 years </td>
+<td> Town Burnt </td>
+</tr>
+<tr>
+<td> High </td>
+<td> 75% C, 25% B </td>
+<td> 10 years </td>
+<td> Town Burnt </td>
+</tr>
+</table>
 
 ## Discussion
 
@@ -342,7 +527,7 @@ doesn't sufficiently reduce forest fire size overall.
 We can see that the most difficult situation is trying to control wildfires in
 areas with frequent high winds. These frequent high winds result in fires being
 able to jump significant distances, over either man-made or natural firebreaks.
-This presents in Table~\ref{tab:fire} in the high wind condition by more 
+This presents in Table 1 in the high wind condition by more 
 extreme levels in the average fire size. In the 'all burn' high wind condition 
 we see a misleadingly low level of controlled burns being out of control
 because all of them are out of control. This means we have many controlled 
