@@ -371,6 +371,7 @@ conditions. </caption>
 <td> 12.5% </td>
 <td> 14% </td>
 </tr>
+</table>
 
 ### Adding a Town
 
