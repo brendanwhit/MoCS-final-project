@@ -550,27 +550,31 @@ management techniques.
 
 ## Bibliography
 
-[1] B. J. Stocks, M. Fosberg, T. Lynham, L. Mearns, B. Wotton, Q. Yang, J. Jin,
+[1] [B. J. Stocks, M. Fosberg, T. Lynham, L. Mearns, B. Wotton, Q. Yang, J. Jin,
 K. Lawrence, G. Hartley, J. Mason, _et al._, "Climate Change and Forest Fire
 Potential in Russian and Canadian Boreal Forests," _Climatic Change_, vol. 38,
-no. 1, pp. 1-13, 1998
+no. 1, pp. 1-13,
+1998](http://www.norsemathology.org/longa/classes/ClimateChange/uploaded/bstocks114.pdf)
 
-[2] B. W. Service, _Wildland Fire Management Strategy_, Government of B.C.,
-Canada, Sep 2010
+[2] [B. W. Service, _Wildland Fire Management Strategy_, Government of B.C.,
+Canada, Sep
+2010](https://www2.gov.bc.ca/assets/gov/farming-natural-resources-and-industry/forestry/wildfire-management/governance/bcws_wildland_fire_mngmt_strategy.pdf)
 
-[3] E. E. Knapp and J. E. Keeley, "Heterogeneity in Fire Severity Within Early
+[3] [E. E. Knapp and J. E. Keeley, "Heterogeneity in Fire Severity Within Early
 Season and Late Season Prescribed Burns in a Mixed-conifer Forest," 
-_International Journal of Wildland Fire_, vol. 15, no. 1, pp. 37-45, 2006.
+_International Journal of Wildland Fire_, vol. 15, no. 1, pp. 37-45,
+2006.](https://www.fs.fed.us/ffs/docs/sequoia/K2006_Knapp_Heterogeneity_IJWF_95.pdf)
 
-[4] N. Cheney, J. Gould, and W. Catchpole, "The Influence of Fuel, Weather, and
+[4] [N. Cheney, J. Gould, and W. Catchpole, "The Influence of Fuel, Weather, and
 Fire Shape Variables on Fire-spread in Grasslands," _International Journal of 
-Wildland Fire_, vol. 3, no. 1, pp. 31-44, 1993.
+Wildland Fire_, vol. 3, no. 1, pp. 31-44, 1993.](CheneyGouldCatchpole1993.pdf)
 
-[5] Z. S. Pourtaghi, H. R. Pourghasemi, R. Aretano, and T. Semeraro, 
+[5] [Z. S. Pourtaghi, H. R. Pourghasemi, R. Aretano, and T. Semeraro, 
 "Investigation of General Indicators Influencing on Forest Fire and Its 
 Susceptibility Modeling Using Different Data Mining Techniques," _Ecological
-Inidicators_, vol. 64, pp. 72-84, 2016.
+Inidicators_, vol. 64, pp. 72-84, 2016.](pourtaghi2016.pdf)
 
-[6] E. Pastor, L. Z&aacute;rate, E. Planas, and J. Arnaldos, "Mathematical
+[6] [E. Pastor, L. Z&aacute;rate, E. Planas, and J. Arnaldos, "Mathematical
 Models and Calculation Systems for the Study of Wildland Fire Behaviour," 
-_Progress in Energy and Combustion Science_, vol. 29, no. 2, pp. 139-153, 2003.
+_Progress in Energy and Combustion Science_, vol. 29, no. 2, pp. 139-153, 2003.](pastor2003.pdf)
+
